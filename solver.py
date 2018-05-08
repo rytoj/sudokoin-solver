@@ -109,7 +109,11 @@ if __name__ == "__main__":
             print("--NEW TWEET--: Date: {}\nText: {} ".format(date, new_tweet))
             urls = get_url()
             url = urls[0]
-            driver = Init(url)
+            try:
+                driver = Init(url)
+            except:
+                print("Downaload firefox driver fromm \n https://github.com/mozilla/geckodriver/releases")
+                raise
             firefox = driver.start_browser()
             html_data = driver.get_html()
 
